@@ -28,12 +28,12 @@ jobs:
     env:
       RUST_BACKTRACE:  full
     steps:
-      - name:          Update Git
+      - name:          Update Git & Install deps
         run:           |
           apt-get update -y;
           apt-get install -y --no-install-recommends software-properties-common;
           add-apt-repository -y -u ppa:git-core/ppa;
-          apt-get install -y --no-install-recommends git;
+          apt-get install -y --no-install-recommends git libssl-dev;
         shell:       bash
       - name:          Checkout sources & submodules
         uses:          actions/checkout@master
@@ -85,12 +85,12 @@ jobs:
     env:
       RUST_BACKTRACE:  full
     steps:
-      - name:          Update Git
+      - name:          Update Git & Install deps
         run:           |
           apt-get update -y;
           apt-get install -y --no-install-recommends software-properties-common;
           add-apt-repository -y -u ppa:git-core/ppa;
-          apt-get install -y --no-install-recommends git;
+          apt-get install -y --no-install-recommends git libssl-dev;
         shell:       bash
       - name:          Checkout sources & submodules
         uses:          actions/checkout@master
@@ -143,12 +143,12 @@ jobs:
       RUST_BACKTRACE:  full
       RUSTFLAGS:       "-C link-arg=-s" #Strip binaries
     steps:
-      - name:          Update Git
+      - name:          Update Git & Install deps
         run:           |
           apt-get update -y;
           apt-get install -y --no-install-recommends software-properties-common;
           add-apt-repository -y -u ppa:git-core/ppa;
-          apt-get install -y --no-install-recommends git;
+          apt-get install -y --no-install-recommends git libssl-dev;
         shell:       bash
       - name:          Checkout sources & submodules
         uses:          actions/checkout@master
